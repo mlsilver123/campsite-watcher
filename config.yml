@@ -14,7 +14,7 @@ search:
 
     - label: "July B"
       start: "2025-07-29"
-      end: "2025-08-3"
+      end: "2025-08-03"
       active: true
 
 sites:
