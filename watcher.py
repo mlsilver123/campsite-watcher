@@ -344,6 +344,17 @@ def write_results(finds, config):
             "campground_name": config["campground"]["name"],
             "min_nights": config["search"]["min_consecutive_nights"],
             "map_url": "https://extapps.dec.ny.gov/docs/permits_ej_operations_pdf/sarnaclakeisl23.pdf",
+            "date_ranges": [
+                {
+                    "label": r.get("label", f"{r['start']} to {r['end']}"),
+                    "start": r["start"],
+                    "end": r["end"],
+                    "active": r.get("active", True),
+                }
+                for r in config["search"]["date_ranges"]
+            ],
+            "preferred_sites": [str(s["id"]) for s in config["sites"].get("preferred", [])],
+            "watch_sites": [str(s["id"]) for s in config["sites"].get("watch", [])],
         },
     }
 
