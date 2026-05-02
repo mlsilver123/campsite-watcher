@@ -39,5 +39,11 @@ sites:
     - id: 19
     - id: 20
     - id: 74
+    - id: 40
+    - id: 41
+    - id: 48
+    - id: 60
+    - id: 44
+    - id: 36
 
   watch: []
