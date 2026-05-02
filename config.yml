@@ -40,4 +40,4 @@ sites:
     - id: 20
     - id: 74
 
-  watch:[]
+  watch: []
