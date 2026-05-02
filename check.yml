@@ -1,0 +1,43 @@
+name: check availability
+
+on:
+  schedule:
+    # Every 2 hours (UTC). Adjust offsets below to match your timezone.
+    # UTC+0  = midnight, 2am, 4am, 6am, 8am, 10am, 12pm, 2pm, 4pm, 6pm, 8pm, 10pm
+    # EDT    = -4h from UTC  (summer)
+    # EST    = -5h from UTC  (winter)
+    - cron: "0 */2 * * *"
+
+  # Allow a manual run from the GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # needed to push results.json back to the repo
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run availability check
+        run: python watcher.py
+
+      - name: Commit and push results
+        run: |
+          git config --global user.name  "campsite-watcher[bot]"
+          git config --global user.email "action@github.com"
+          git add docs/results.json
+          # Only commit if results.json actually changed
+          git diff --staged --quiet || \
+            git commit -m "chore: availability check $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push
