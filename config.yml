@@ -1,0 +1,40 @@
+campground:
+  name: "Saranac Lake Islands"
+  contract_code: "NY"
+  park_id: 562
+  base_url: "https://newyorkstateparks.reserveamerica.com"
+
+search:
+  min_consecutive_nights: 3
+  date_ranges:
+    - label: "July 4th window"
+      start: "2025-07-04"
+      end: "2025-07-14"
+      active: true
+
+    - label: "Late August"
+      start: "2025-08-15"
+      end: "2025-08-24"
+      active: false  # set to true to activate
+
+sites:
+  # mode options:
+  #   "any"            — alert on every available site
+  #   "preferred_list" — alert on all sites, but flag preferred ones
+  #   "specific_only"  — only alert on sites in preferred/watch lists
+  mode: "preferred_list"
+
+  preferred:
+    - id: 14
+      type: "lean-to"
+    - id: 7
+      type: "tent"
+    - id: 22
+      type: "tent"
+    - id: 15
+      type: "lean-to"
+
+  watch:
+    - id: 5
+    - id: 19
+    - id: 24
