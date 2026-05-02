@@ -5,17 +5,17 @@ campground:
   base_url: "https://newyorkstateparks.reserveamerica.com"
 
 search:
-  min_consecutive_nights: 3
+  min_consecutive_nights: 4
   date_ranges:
-    - label: "July 4th window"
-      start: "2025-07-04"
-      end: "2025-07-14"
+    - label: "July A"
+      start: "2025-07-22"
+      end: "2025-07-27"
       active: true
 
-    - label: "Late August"
-      start: "2025-08-15"
-      end: "2025-08-24"
-      active: false  # set to true to activate
+    - label: "July B"
+      start: "2025-07-29"
+      end: "2025-08-3"
+      active: true
 
 sites:
   # mode options:
@@ -25,16 +25,19 @@ sites:
   mode: "preferred_list"
 
   preferred:
-    - id: 14
-      type: "lean-to"
-    - id: 7
-      type: "tent"
-    - id: 22
-      type: "tent"
-    - id: 15
-      type: "lean-to"
-
-  watch:
+    - id: 3
+    - id: 4
     - id: 5
-    - id: 19
+    - id: 13
+    - id: 35
+    - id: 21
+    - id: 22
+    - id: 23
     - id: 24
+    - id: 27
+    - id: 28
+    - id: 19
+    - id: 20
+    - id: 74
+
+  watch:[]
